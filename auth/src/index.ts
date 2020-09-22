@@ -33,6 +33,10 @@ app.all("*", async (req, res) => {
 app.use(errorHandler);
 
 const start = async () => {
+  if (!process.env.JWT_JEY) {
+    throw new Error("JWT nust be defined");
+  }
+
   try {
     await mongoose.connect("mongodb://auth-mongo-srv:27017/auth", {
       useNewUrlParser: true,
