@@ -33,7 +33,7 @@ app.all("*", async (req, res) => {
 app.use(errorHandler);
 
 const start = async () => {
-  if (!process.env.JWT_JEY) {
+  if (!process.env.JWT_KEY) {
     throw new Error("JWT nust be defined");
   }
 
